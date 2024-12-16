@@ -1,0 +1,23 @@
+{% extends 'blogs/base.html' %}
+{% block title %}Home - My Blog{% endblock %}
+{% block content %}
+    <h1 class="mb-4 text-center animate-in">Blog Posts</h1>
+    <div class="row">
+        {% for post in posts %}
+            <div class="col-md-4 mb-3">
+                <a href="{% url 'blogs:edit_post' post.id %}" class="card list-group-item list-group-item-action card-shadow hover-shadow">
+                    <div class="card-body">
+                        <h5 class="card-title">{{ post.title }}</h5>
+                        <p class="card-text">{{ post.text|truncatewords:20 }}</p>
+                        <small class="text-muted">Posted on {{ post.date_added }}</small>
+                    </div>
+                </a>
+            </div>
+        {% empty %}
+            <p class="text-muted">No blog posts available.</p>
+        {% endfor %}
+    </div>
+    <div class="text-center mt-4">
+        <a href="{% url 'blogs:new_post' %}" class="btn btn-primary btn-lg">Add New Post</a>
+    </div>
+{% endblock %}

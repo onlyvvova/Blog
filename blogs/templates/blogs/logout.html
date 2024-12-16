@@ -1,0 +1,8 @@
+{% extends 'blogs/base.html' %}
+{% block title %}Logout - My Blog{% endblock %}
+{% block content %}
+    <h2 class="text-center mt-5 animate-in">You have been logged out.</h2>
+    <div class="text-center mt-4">
+        <a href="{% url 'blogs:index' %}" class="btn btn-secondary btn-lg">Return to Home</a>
+    </div>
+{% endblock %}

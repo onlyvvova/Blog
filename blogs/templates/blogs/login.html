@@ -1,0 +1,18 @@
+{% extends 'blogs/base.html' %}
+{% block title %}Login - My Blog{% endblock %}
+{% block content %}
+    <h2 class="text-center mb-4 animate-in">Login</h2>
+    <form method="post" class="mt-4 mx-auto" style="max-width: 400px;">
+        {% csrf_token %}
+        <div class="form-group">
+            <label for="username">Username</label>
+            <input type="text" name="username" class="form-control" id="username" required>
+        </div>
+        <div class="form-group">
+            <label for="password">Password</label>
+            <input type="password" name="password" class="form-control" id="password" required>
+        </div>
+        <button type="submit" class="btn btn-primary btn-lg btn-block">Login</button>
+    </form>
+    <p class="text-center mt-3">Don't have an account? <a href="{% url 'blogs:register' %}">Register here</a>.</p>
+{% endblock %}
